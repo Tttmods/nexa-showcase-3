@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexaStudios | Discord Dev Studio</title>
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; color:#333;}
+  header { background:#1e1e2f; color:#fff; padding:20px; text-align:center;}
+  header h1 { margin:0; font-size:2em;}
+  header p { margin:5px 0;}
+  nav a { color:#fff; margin:0 10px; text-decoration:none; font-weight:bold;}
+  nav a:hover { text-decoration:underline;}
+  section { padding:40px 20px; max-width:900px; margin:0 auto; }
+  footer { background:#1e1e2f; color:#fff; text-align:center; padding:20px; margin-top:20px;}
+  .discord-btn { background:#7289da; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none; font-weight:bold;}
+  .discord-btn:hover { background:#5b6eae; }
+  .projects, .services-list { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+  .project, .service { background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.2); flex:1 1 250px; }
+  form { display:flex; flex-direction:column; gap:10px; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.2);}
+  input, textarea, select { padding:10px; border-radius:5px; border:1px solid #ccc; width:100%; }
+  button { padding:10px; background:#7289da; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold; }
+  button:hover { background:#5b6eae; }
+  .page { display:none; }
+  .page.active { display:block; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>NexaStudios</h1>
+  <p>Discord Dev Studio – Bots, Scripts, and More</p>
+  <a href="https://discord.gg/k5Tj3BS6" target="_blank" class="discord-btn">Join Our Discord</a>
+  <nav>
+    <a href="#" onclick="showPage('home')">Home</a>
+    <a href="#" onclick="showPage('portfolio')">Portfolio</a>
+    <a href="#" onclick="showPage('services')">Services</a>
+    <a href="#" onclick="showPage('request')">Request</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="page active">
+    <h2>Welcome to NexaStudios</h2>
+    <p>Your one-stop Discord dev studio for bots, scripts, and more!</p>
+  </section>
+
+  <section id="portfolio" class="page">
+    <h2>Our Work</h2>
+    <div class="projects">
+      <div class="project"><h3>Discord Bot #1</h3><p>Custom bot for moderation & fun commands.</p></div>
+      <div class="project"><h3>Custom Logo</h3><p>High-quality logos for servers and projects.</p></div>
+      <!-- Add more projects here -->
+    </div>
+  </section>
+
+  <section id="services" class="page">
+    <h2>Our Services</h2>
+    <div class="services-list">
+      <div class="service">Discord Bots (Custom & Pre-made)</div>
+      <div class="service">Server Setup & Configuration</div>
+      <div class="service">Custom Scripts & Automation</div>
+      <div class="service">Logo Design & Graphics</div>
+    </div>
+  </section>
+
+  <section id="request" class="page">
+    <h2>Request a Service</h2>
+    <form id="requestForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="text" name="discord" placeholder="Discord Tag" required>
+      <select name="service" required>
+        <option value="">Select Service</option>
+        <option value="bot">Discord Bot</option>
+        <option value="server">Server Setup</option>
+        <option value="script">Custom Script</option>
+        <option value="logo">Logo Design</option>
+      </select>
+      <textarea name="details" placeholder="Project Details" rows="5" required></textarea>
+      <button type="submit">Submit Request</button>
+      <p id="formMessage" style="color:green;"></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 NexaStudios | <a href="https://discord.gg/k5Tj3BS6">Discord</a></p>
+</footer>
+
+<script>
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+  }
+
+  document.getElementById('requestForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formMessage').textContent = "Thank you! Your request has been sent. Join our Discord for updates.";
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
